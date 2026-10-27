@@ -1,10 +1,53 @@
 # Rootkit Linux
+<p align="left">
+  <img src="https://img.shields.io/badge/Topic-rootkit-8b5cf6?style=flat-square" alt="rootkit" />
+  <img src="https://img.shields.io/badge/Topic-eBPF-14b8a6?style=flat-square" alt="ebpf" />
+  <img src="https://img.shields.io/badge/Topic-redteam-ef4444?style=flat-square" alt="redteam" />
+</p>
 
-Projet de sécurité offensive : rootkit Linux sous forme de module noyau (LKM), avec C2 multi-protocole, obfuscation ELF et canal covert eBPF.
+Projet de recherche en sécurité système centré sur le noyau Linux, les mécanismes de surveillance, les hooks système, les interfaces espace utilisateur / noyau, et les outils d’observation fondés sur eBPF. L’objectif principal est d’étudier la surface d’attaque et les mécanismes de détection associés à un environnement Linux contrôlé, dans un cadre strictement académique, éthique et expérimental.
+
+> Attention : ce projet est conçu pour des environnements de laboratoire isolés. Il ne doit être utilisé ni dans des systèmes de production, ni dans des infrastructures non autorisées, ni dans un contexte illégal ou non conforme aux règles applicables.
 
 **Architecture** : x86-64 — **Interface** : `/dev/rootkit` (ioctl) + BPF maps
 
 ---
+## Objectif du projet
+
+Ce projet vise à explorer :
+
+- le comportement des modules noyau Linux,
+- les mécanismes de hooking système,
+- les interactions entre le noyau et les processus utilisateurs,
+- l’analyse de la sécurité des appels système,
+- les capacités de surveillance réseau et système via eBPF,
+- la transformation et la détection de comportements anormaux dans des environnements de test isolés.
+
+Il s’inscrit dans une démarche de recherche en cybersécurité, avec un accent sur :
+
+- l’analyse des primitives du noyau,
+- la compréhension des mécanismes d’interception,
+- l’étude de la détection des activités suspectes,
+- l’évaluation des techniques de hardening et d’observation.
+
+---
+
+## Cadre d’utilisation
+
+Ce projet est strictement limité à :
+
+- la recherche académique,
+- l’enseignement et la formation en sécurité système,
+- les laboratoires maîtrisés,
+- les environnements virtualisés isolés,
+- la mise en œuvre de hypothèses de sécurité dans un cadre contrôlé.
+
+Il ne doit pas être utilisé pour :
+
+- compromettre des systèmes tiers,
+- contourner des protections légitimes,
+- agir sans autorisation explicite,
+- déployer des composants sur des machines non contrôlées.
 
 ## Auteurs
 **Alberick Mahoussi**
@@ -52,6 +95,15 @@ rootkit/
 ├── metamorph/           ← Mutateur ELF
 └── linux-6.19.9/        ← Sources kernel cible (bzImage + headers)
 ```
+Le projet est organisé autour de plusieurs briques fonctionnelles :
+
+- module noyau Linux ;
+- interface utilisateur de contrôle et de supervision ;
+- mécanismes de collecte de traces système ;
+- programmes eBPF pour l’observation du noyau et du réseau ;
+- outils de transformation/détection autour des binaires ELF ;
+- environnement de validation dans une machine virtuelle.
+
 
 ---
 
